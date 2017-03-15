@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阅读过后才可以注册——定时器</title>
+    <style type="text/css">
+        #page{
+/*这里注意，如果只是想在Y轴做scroll处理，则用scroll-y来表示*/
+            overflow: hidden;
+            height:200px;
+            width:200px;
+            border: 1px solid #000;
+        }
+    </style>
+    <script type="text/javascript" defer=true>
+    	function scr(){
+            var page=document.getElementById("page");
+            var btn=document.getElementById("btn");
+            if(page.offsetHeight+page.scrollTop>250){
+                btn.disabled=false;
+            }
+        }
+    </script>
+</head>
+<body style="text-align: center;">
+
+	<div id="page" onscroll="scr()">
+     <p>请阅读完本协议</p>   
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+     <br/><br/><br/><br/><br/><br/><br/>
+     <br/><br/><br/><br/><br/>
+     <br/><br/><br/><br/>
+
+    </div>
+    <input type="button" id="btn" value="同意" disabled=true  />
+</body>
+</html>

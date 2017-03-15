@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态修改网页标题</title>
+    <script type="text/javascript">
+		   function search(elem){
+		   	  var str="";
+		   	  var ele=elem.childNodes;
+		   	  for (var i = 0; i < ele.length; i++) {
+		   	  	var e=ele[i];
+		   	  	if(e.parentNode==elem&&e.nodeType==1){
+		   	  		str+="\n"+e.tagName;
+		   	  	}
+		   	  	if(e.childNodes.length>0){
+/*不遍历文本节点，当时文本节点时，跳过*/
+		   	  		if(e.childNodes.length==1){
+		   	  			var fe=e.childNodes[0];
+		   	  			if(fe.nodeType==3){
+		   	  				continue;
+		   	  			}
+		   	  		}
+		   	  		str+="\nt";
+		   	  		str+=search(e);
+		   	  	}
+		   	  }
+		   	  return str;
+		   }
+		   function getTree(){
+		   	  alert(search(document.body));
+		   }
+	</script>
+</head>
+<body style="text-align: center;">
+	
+	<button id="change" onclick="getTree()">遍历节点</button>
+		<a href="">我是一个链接</a>
+</body>
+</html>

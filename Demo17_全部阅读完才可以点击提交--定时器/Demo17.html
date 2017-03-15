@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阅读过后才可以注册——定时器</title>
+    <script type="text/javascript" defer=true>
+    	function reg(){
+    		var sec=10;
+    		var timer=null;
+    		var btn=document.getElementById("submit");
+    		if(sec==0){
+    			clearInterval(timer);
+    			btn.disabled=false;
+    			btn.value="注册吧";
+    		}else{
+    			timer=setInterval(function(){
+    				sec--;
+    				btn.value="注册"+sec;
+    				btn.disabled=true;
+    			},1000)
+    		}
+    	}
+    </script>
+</head>
+<body style="text-align: center;">
+<p>认真阅读本协议！</p>
+	<input type="submit" value="点击注册" id="submit" onclick="reg()" />
+</body>
+</html>

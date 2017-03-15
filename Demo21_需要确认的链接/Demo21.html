@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>confirm跳转链接</title>
+	<script type="text/javascript" defer=true>
+	       function confirmLink(link){
+	       var t=confirm('您确认跳转到'+link+'吗?');
+	       if(t==true){
+	       	return true;
+	       }else{
+	       	alert("放弃进入网址");
+	       	return false;
+	       }
+	    }
+	</script>
+</head>
+<body style="text-align:center">
+<a href="http://www.baidu.com" onclick="return confirmLink(this.href)">点击跳转</a>
+
+	
+</body>
+</html>

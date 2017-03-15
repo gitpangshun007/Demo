@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>一定时间后自动关闭页面</title>
+
+</head>
+<body style="text-align:center">
+<p>如果不点击关闭按钮，页面将于10秒后关闭</p>
+<button id="close" onclick="pauseClose()">点击按钮阻止自动关闭</button>
+<script type="text/javascript">
+	var willclose=true;
+    function pauseClose(){
+    	willclose=false;
+    }
+    setInterval(function(){
+    	if(willclose){
+    		window.close();
+    	}else{
+    		willclose=true;
+    	}
+    },10000);
+</script>
+	
+</body>
+</html>

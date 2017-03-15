@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p id='para'></p>
+	<input type="button" value="send" id="send" onclick='sendAjax();' />
+	<script type='text/javascript'>
+		function sendAjax(){
+			var xhr;
+			
+				xhr=new XMLHttpRequest();
+		
+
+			xhr.open('GET','C:/Users/cz/Desktop/jsDemo/Demo35_AJAX应用/test001.txt',true);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+                 if(xhr.readyState==4&&xhr.status==200){
+                 	document.getElementById("para").innerHTML=xhr.responseText;
+                 }else{
+                 	alert(xhr.status);
+                 }
+			}
+		}
+	</script>
+</body>
+</html>

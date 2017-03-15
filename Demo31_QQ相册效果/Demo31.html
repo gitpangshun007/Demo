@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片查看器以及QQ相册效果</title>
+	<script type="text/javascript" defer=true>
+		function showImg(src){
+              var img=document.getElementById("the_img");
+              img.src=src;
+		}
+	</script>
+</head>
+<body>
+	<h2>单击图片翻到下一张</h2>
+	<img src="car1.jpg" alt="car1" width='100px' height='100px' onclick="showImg(this.src);">
+	<img src="car2.jpg" alt="car1" width='100px' height='100px' onclick="showImg(this.src);"><br>
+	<img src="" id='the_img' alt= >
+</body>
+</html>

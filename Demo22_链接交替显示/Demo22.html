@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>验证email以及只允许输入数字以及大小写</title>
+    <script type="text/javascript" defer=true>
+    	function checkEmail(){
+             var textBox=document.getElementById("myEmail");
+             var btn1=document.getElementById("btn1");
+             var regEmail=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+             if(regEmail.test(textBox.value)){
+             	alert("输入正确，提交成功");
+             }else{
+             	alert("格式输入错误");
+             }
+    	}
+       function checkFirst(){
+       	var textBox=document.getElementById("Upper");
+       	var btn2=document.getElementById("btn2");
+       	var content=textBox.value;
+       	if(content!='' && (content.charAt(0)>'Z'||content.charAt(0)<'A')){
+       		alert("首字母要为大写，请重新输入");
+       	}else{
+       		alert("格式正确");
+       	}
+       }
+       function checkAll(){
+       	var textBox=document.getElementById("allUpper");
+       	var btn3=document.getElementById("btn3");
+       	var val3=textBox.value;
+       	if(val3!="" && /\b[A-Z]+\b/.test(val3)){
+       		alert("格式正确，提交成功");
+       	}else{
+       		alert("请全部输入大写字母！");
+       	}
+       }
+       function checkNumber(){
+       	var textBox=document.getElementById("allNumber");
+       	var btn4=document.getElementById("btn4");
+       	var val4=textBox.value;
+       	if(val4!="" && /\b[0-9]+\b/.test(val4)){
+       		alert("格式正确，提交成功");
+       		if(val4.length!=13){
+       			alert("手机位数不对");
+       		}
+       	}else{
+       		alert("格式不正确");
+       	}
+       }
+
+    </script>
+</head>
+<body style="text-align: center;">
+
+	请输入邮箱号：<input type="text" id="myEmail" value="" />
+	<input type="button" id="btn1" value="点击校验" onclick="checkEmail()" /><br>
+	请输入用户名(首字母大写)：<input type="text" id="Upper" value="" />
+	<input type="button" id="btn2" value="点击校验" onclick="checkFirst()" /><br>
+	请输入用户名(全部字母大写)：<input type="text" id="allUpper" value="" />
+	<input type="button" id="btn3" value="点击校验" onclick="checkAll()" /><br>
+	请输入手机号码：<input type="text" id="allNumber" value="" />
+	<input type="button" id="btn4" value="点击校验" onclick="checkNumber()" />
+		
+</body>
+</html>

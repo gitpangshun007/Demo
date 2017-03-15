@@ -1,0 +1,72 @@
+<!-- 思路是：取出表格中所有tr，然后根据数字所在的cell排序，在这之前要把表格删掉，删掉前要把表格的值放到一个空数组里。然后将新数组排序，排序后插到表格中~ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>根据表格的列排序表格数据</title>
+	<script type="text/javascript" defer=true>
+		var sortType='';
+		function tbSort(){
+			var tab=document.getElementById("tab");
+			var rows=tab.rows;
+			var len=rows.length;
+			var arr=[];
+/*这里i=1,因为第一行是表头*/
+			for (var i = 1; i < len; i++) {
+				var name=rows[i].cells[0].innerHTML;
+				var age=rows[i].cells[1].innerHTML;
+				arr[arr.length]=({'name':name,'age':age});
+			}
+			for (var j = 0; j < len-1; j++) {
+				tab.deleteRow(1);
+			}
+/*
+*/
+			if(sortType==''||sortType=='down'){
+				sortType='up';
+			}else if (sortType=='up') {
+				sortType='down';
+			}else{
+				sortType='up';
+			}
+/*重点：赋予新的数组，并return*/
+			arr=arr.sort(function(obj1,obj2){
+				if(sortType=='up'){
+				return obj2['age'] - obj1['age'];
+			}else{
+				return obj1['age'] - obj2['age'];
+			}
+			});
+			for (var i = 0; i < arr.length; i++) {
+				var newRow=tab.insertRow();
+				var n=newRow.insertCell(0);
+				var a=newRow.insertCell(1);
+                n.innerHTML=arr[i]['name'];
+                a.innerHTML=arr[i]['age'];
+			}
+		}
+	</script>
+</head>
+<body>
+	<table id="tab" border="6">
+		<tbody>
+			<tr onclick="tbSort();">
+			<td>姓名</td>
+			<td>年龄</td>
+			</tr>
+			<tr>
+			<td>A</td>
+			<td>11</td>
+			</tr>
+			<tr>
+			<td>B</td>
+			<td>12</td>
+			</tr>
+			<tr>
+			<td>C</td>
+			<td>13</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

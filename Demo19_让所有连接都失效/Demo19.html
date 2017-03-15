@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>让所有链接都失效</title>
+	<script type="text/javascript" defer=true>
+	       var aLink=document.getElementsByTagName("a");
+           for (var i = 0; i < aLink.length; i++) {
+           	aLink[i].onclick=null;
+/*javascript:void(0)可以让链接没有任何反应*/
+           	aLink[i].href="javascript:void(0)";
+
+           }
+	</script>
+</head>
+<body style="text-align:center">
+<a href="#">链接1</a>
+<a href="#">链接2</a>
+<a href="#">链接3</a>
+<a href="#">链接4</a>
+	
+</body>
+</html>

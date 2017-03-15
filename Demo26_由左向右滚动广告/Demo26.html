@@ -1,0 +1,62 @@
+<!-- 需要注意的点：
+1、要移动的UL必须设置position以及left值
+2、要用到offsetLeft -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>由左向右移动广告</title>
+	<style>
+		#container{
+			overflow: hidden;
+			border:1px solid #000;
+			position: relative;
+		}
+		#con_ul{
+			width:1600px;
+			height: 200px;
+			position: relative;
+			overflow: hidden;
+			padding-left:0;
+			left:0;
+			
+		}
+		#con_ul li{
+            text-decoration: none;
+			list-style: none;
+			float:left;
+			margin-left:5px;
+		}
+	</style>
+	<script type="text/javascript" defer=true>
+           function init(){
+           	    var timer=null;
+           	    var con=document.getElementById("con_ul");
+           	    function roll(){
+           	    var container=document.getElementById("container");
+                var left=con.offsetLeft;
+                con.style.left=(left-10) + 'px';
+                if(Math.abs(left)==1600){
+                	con.style.left=0;
+                }
+              }
+              timer=setInterval(roll, 30);
+           }
+           window.onclick=init;
+	</script>
+</head>
+<body>
+	<div id="container">
+		<ul id="con_ul">
+			<li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		    <li><a href="#"><img src="car.jpg" alt="" width="200px" height="200px"></a></li>
+		</ul>
+	</div>
+</body>
+</html>

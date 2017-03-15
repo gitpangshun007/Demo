@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除前确认是否删除</title>
+    <script type="text/javascript" defer=true>
+    	function deleteC(){
+    		var confirmDel=false;
+    		confirmDel=window.confirm("确认删除么?");
+    		if(confirmDel){
+                alert("已经删除");
+    		}else{
+/*这里是return false*/
+    			return false;
+    		}
+    	}
+    </script>
+		 
+</head>
+<body style="text-align: center;">
+	
+	<button id="change" onclick="deleteC()">删除</button>	
+	
+</body>
+</html>

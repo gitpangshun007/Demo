@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>信息从下往上滚动</title>
+	<script type="text/javascript" defer=true>
+		function init(){
+			var timer;
+			var container=document.getElementById("container");
+			var con1=document.getElementById("con1");
+			var con2=document.getElementById("con2");
+			con2.innerHTML=con1.innerHTML;
+			function roll(){
+				if(con2.offsetHeight<=container.scrollTop){
+					container.scrollTop-=con1.offsetHeight;
+				}else{
+					container.scrollTop++;
+				}
+			}
+			timer=setInterval(roll, 30);
+
+		}
+		window.onload=init;
+	</script>
+</head>
+<body>
+    <div id="container" style="overflow: hidden;width:500px;height: 200px;margin:0 auto;">
+    	<table>
+    		<tbody>
+    			<tr>
+    				<td id="con1"><img src="car2.jpg" alt="car"></td>
+    				
+    			</tr>
+    			<tr>
+    				
+    				<td id="con2"></td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>按照区间来显示图片</title>
+	<script type='text/javascript' defer=true>
+	    var arr=[[50,50],[200,300],[600,250],[330,260]];
+	    var index=0;
+	    function showImg(){
+		var div=document.getElementById("myDiv");
+		index++;
+		if(index==3){
+			index=0;
+		}
+		var x=arr[index][0]+'px';
+		var y=arr[index][1]+'px';
+		div.style.left=x;
+		div.style.top=y;
+        }
+
+	</script>
+	<style>
+	   #wrap{
+	   	position: relative;
+	   }
+		#myDiv{
+			width:60px;
+			height: 60px;
+			background-color: #000;
+			position: relative;
+			opacity: 0.5;
+			left:0;
+			top:0;
+		}
+		body{background:url("car.jpg");}
+	</style>
+</head>
+<body>
+<div id="wrap">
+	<p><input type="button" value="切换位置" onclick="showImg();"></p>
+	<div id="myDiv"></div>
+</div>
+</body>
+</html>

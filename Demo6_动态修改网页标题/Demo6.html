@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态修改网页标题</title>
+
+</head>
+<body style="text-align: center;">
+	<input type="text" id="myTitle" />
+	<button id="change">修改标题</button>
+		<script type="text/javascript">
+		   document.getElementById("change").onclick=function(){
+               document.title=document.getElementById("myTitle").value;
+		   }
+		
+	</script>
+</body>
+</html>

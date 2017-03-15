@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片查看器以及QQ相册效果</title>
+	<script type="text/javascript" defer=true>
+		function nextImg(){
+		    var arr=['car1.jpg','car2.jpg','car3.jpg'];
+			var img=document.getElementById("the_img");
+			for (var i = 0; i < arr.length; i++) {
+				(function(){
+                j=i;
+				img.setAttribute('src', arr[j]);
+				})();
+				
+				break;
+			}
+			
+		}
+	</script>
+</head>
+<body>
+	<h2>单击图片翻到下一张</h2>
+	<img src="" id='the_img' alt="car1" onclick="nextImg();">
+</body>
+</html>

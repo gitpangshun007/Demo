@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>关于JS的Date对象</title>
+	<script type="text/javascript" defer=true>
+		function fixTitle(){
+			var date=new Date();
+            document.title=date.toString();
+		}
+		function welcome(){
+			var date=new Date();
+			var hour=date.getHours();
+			if(hour<12){
+				document.title='上午好';
+			}
+			if(hour>12&&hour<18){
+				document.title='中午好';
+			}
+			if(hour>18){
+				document.title='晚上好';
+			}
+		}
+		function changeColor(){
+			var date=new Date();
+			var month=date.getMonth();
+			var trueMonth=month+1;
+			if(trueMonth%2==0){
+				document.body.style.backgroundColor = 'orange';
+			}else{
+				document.body.style.backgroundColor = 'blue';
+			}
+		}
+	</script>
+</head>
+<body onload="changeColor();">
+	<input type="button" value="修改标题" onclick="fixTitle();" />
+	<input type="button" value="修改欢迎语" onclick="welcome();" />
+</body>
+</html>

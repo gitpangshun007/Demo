@@ -1,0 +1,26 @@
+<!-- js中的event对象的button属性，值为1（左键）2（中键）3（右键） -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>禁用鼠标右键并改变鼠标的形状</title>
+</head>
+<body>
+	<p>禁用鼠标右键并改变鼠标的形状</p>
+	<script type="text/javascript">
+	    var p=document.getElementsByTagName("p")[0];
+	    p.onmouseover=function(){
+	    	p.style.fontSize="20px";
+	    }
+	    p.onmouseout=function(){
+	    	p.style.fontSize="12px";
+	    }
+		document.onmousedown=function(event){
+             p.style.cursor="pointer";
+			if(event.button==2){
+				alert("禁止使用右键");
+			}
+		}
+	</script>
+</body>
+</html>

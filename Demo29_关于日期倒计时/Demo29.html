@@ -1,0 +1,66 @@
+<!-- 思路：取到两个时间，得到毫秒数。然后设置一个函数专门做倒计时的内容，再把整体函数放到定时器内。 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时</title>
+	<script type="text/javascript" defer=true>
+		var timer;
+		function init(){
+		var now=new Date();
+		var end=new Date(now.getFullYear()+1,0,1);
+		var time=end.getTime()-now.getTime();
+		var str=getTimeText(time);
+        document.getElementById("para").innerHTML=str;
+	}
+        timer=setInterval(init, 1000);
+/*做倒计时的内容*/
+	function getTimeText(time){
+		time/=1000;
+		var days=time/(24*60*60);
+		var hours=time%(24*60*60)/(60*60);
+		var minutes=time%(24*60*60)%(60*60)/60;
+		var sec=time%(24*60*60)%(60*60)%60;
+		var str='';
+		if(days>0){
+			str+=Math.floor(days)+'天:';
+		}
+		if(hours>0){
+			str+=Math.floor(hours)+'小时:';
+		}
+		if(minutes>0){
+			str+=Math.floor(minutes)+'分:';
+		}
+		str+=Math.floor(sec)+'秒';
+         return str;
+	}
+	function showTime(){
+		var now=new Date();
+		var y=now.getFullYear();
+		var m=now.getMonth()+1;
+		var d=now.getDate();
+		var h=now.getHours();
+		var m=now.getMinutes();
+		var s=now.getSeconds();
+		var str='';
+		str=y+'年'+m+'月'+d+'日'+h+'时'+m+'分'+s+'秒';
+        if(now.getDay()>5){
+        	str+='今天是周末！';
+        }
+        if(m==5&&d==1){
+        	str+='今天是五一劳动节';
+        }
+        if(now.getDay()<5){
+        	str+='今天是工作日！';
+        }
+		document.getElementById("page").innerHTML=str;
+	}
+	</script>
+</head>
+<body>
+	<p id="para"></p>
+	<p id="page"></p>
+	<input type="button" value="显示倒计时" onclick="init();"/> <br>
+	<input type="button" value="显示现在时间" onclick="showTime()">
+</body>
+</html>

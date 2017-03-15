@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态修改网页标题</title>
+    <script type="text/javascript">
+		   function getValue(btn){
+		   	var body=btn.parentNode;
+		   	var b=body.childNodes;
+		   	for (var i = 0; i < b.length; i++) {
+		   		if(b[i]!=btn&&b[i].nodeType==btn.nodeType){
+		   			alert(b[i].value);
+		   		}
+		   	}
+
+		}
+	</script>
+</head>
+<body style="text-align: center;">
+	<input type="submit" value="第一个button" onclick="getValue(this)" />
+	<input type="submit" value="第二个button" onclick="getValue(this)" />
+</body>
+</html>

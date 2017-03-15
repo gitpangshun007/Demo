@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片自适应宽和高</title>
+	<script type="text/javascript" defer=true>
+		window.onload=function(){
+		var img=document.getElementById("img");
+		var div=document.getElementById("wrap");
+		var height=div.offsetHeight;
+		var width=div.offsetWidth;
+		var w=img.width;
+		var h=img.height;
+		div.style.paddingTop=(height-h)/2+'px';
+		img.style.margin='0 auto';
+		}
+	</script>
+</head>
+<body>
+	<div id='wrap' style="width:600px;height: 700px;margin:0 auto;border:1px solid #000;">
+		<img src="car2.jpg" id="img" alt="">
+	</div>
+</body>
+</html>

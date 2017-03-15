@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对表单实行不同的提交url</title>
+	<script type="text/javascript" defer=true>
+		function submitButton(btn){
+			var form=document.forms[0];
+			var id=btn.id;
+			if(id=="button1"){
+               form.action="../Demo10_引用同级的元素/Demo10.html";
+			}
+			if(id=="button2"){
+               form.action="../Demo11_倒序排列子元素/Demo11.html";
+			}
+
+                form.submit();
+		}
+	</script>
+</head>
+<body>
+	<form action="" style="width: 200px;height: 200px;">
+		<input type="submit" id="button1" value="按钮1" onclick="submitButton(this)">
+		<input type="submit" id="button2" value="按钮2" onclick="submitButton(this)">
+	</form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态修改网页标题</title>
+    <script type="text/javascript">
+		  
+		  function reverse(){
+		  	var ul=document.getElementsByTagName("ul")[0];
+		  	var len=ul.childNodes.length;
+		  	var arr=[];
+/*注意这里的循环，装入第一个后，删除，然后再装入的就是第二个，第三个。。*/
+		  	for (var i = 0; i < len; i++) {
+		  		arr[i]=ul.childNodes[0];
+		  		ul.removeChild(ul.childNodes[0]);
+		  	}
+		  	for (var i = len-1; i >=0; i--) {
+		  		ul.appendChild(arr[i]);
+		  	}
+		  }
+	</script>
+</head>
+<body style="text-align: center;">
+     <ul>
+     	<li>item1</li>
+     	<li>item2</li>
+     	<li>item3</li>
+     	<li>item4</li>
+     </ul>
+     <button onclick="reverse()">点击倒序排列</button>
+</body>
+</html>

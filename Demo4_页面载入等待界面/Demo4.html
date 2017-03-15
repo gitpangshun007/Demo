@@ -1,0 +1,18 @@
+<!-- 需要注意：js代码要放到dom后，否则JS运行时，Dom没有加载完全，会报错 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>页面载入等待界面</title>
+
+</head>
+<body style="text-align: center;">
+	<div id="notice" style="z-index: 99;display: none;width: 100%;height:500px;background-color: orange;text-align: center;position: absolute;"><span>页面正在载入...请稍后</span></div>
+	<button id="sub">提交页面</button>
+		<script type="text/javascript">
+		document.getElementById("sub").onclick=function(){
+          document.getElementById("notice").style.display="";
+		}
+	</script>
+</body>
+</html>

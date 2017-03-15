@@ -1,0 +1,27 @@
+<!-- 这里主要注意style.width得出的值是有px的，所有要做parseInt处理 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随意改变DIV的大小</title>
+	<script type="text/javascript" defer=true>
+		function change(x){
+			var btn1=document.getElementById("btn1");
+			var btn2=document.getElementById("btn2");
+			var width=document.getElementById("size").style.width;
+			var height=document.getElementById("size").style.height;
+			var w=parseInt(width);
+			var h=parseInt(height);
+			w+=x;
+			h+=x;
+            document.getElementById("size").style.width=w+'px';
+            document.getElementById("size").style.height=h+'px';
+		}   
+	</script>
+</head>
+<body>
+	<div id="size" style="background-color: blue;height: 200px;width:200px;font-weight; border:2px solid orange;margin:0 auto;"></div>
+	<input type="button" id="btn1" onclick="change(10)" value="大一点">
+	<input type="button" id="btn2" onclick="change(-10)" value="小一点">
+</body>
+</html>

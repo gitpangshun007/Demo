@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标拖拽图片</title>
+	<style type="text/css">
+		#wrap{
+			
+			position: absolute;
+			background-color: blue;
+			border:1px solid #000;
+			left:0;
+			top:0;
+		}
+	</style>
+	<script type="text/javascript" defer=true>
+	     window.onload=function(){
+	     	var x=0;
+	     	var y=0;
+	     	var wrap=document.getElementById("wrap");
+	     	wrap.onmousedown=function(e){
+	     	  var e= e||window.event;
+	     	  x=e.clientX-wrap.offsetLeft;
+	     	  y=e.clientY-wrap.offsetTop;
+	     	wrap.onmousemove=function(e){
+	     		var e= e||window.event;
+	     		var l=e.clientX-x;
+	     		var t=e.clientY-y;
+	     		if(x<0){
+	     			x=0;
+	     		}
+	     		if(y<0){
+	     			y=0;
+	     		}
+	     		wrap.style.left=l+"px";
+	     		wrap.style.top=t+"px";
+	     	}
+	     	wrap.onmouseup=function(){
+	     		wrap.onmousemove=null;
+	     		wrap.onmouseup=null;
+	     	}	
+	     	}
+	     	return false;
+	     }
+	</script>
+</head>
+<body>
+	<div id="wrap"><img src="car1.jpg" alt=""></div>
+</body>
+</html>

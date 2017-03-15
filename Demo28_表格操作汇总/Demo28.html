@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>根据表格的列排序表格数据</title>
+	<script type="text/javascript" defer=true>
+/*变换表格字体颜色*/
+		function init(){
+			var tab=document.getElementById("tab");
+			var rows=tab.rows;
+			for (var i = 0; i < rows.length; i++) {
+				var cells=rows[i].cells;
+				for(var j = 0; j < cells.length; j++){
+					cells[j].onclick=function(){
+						this.style.color="red";
+					}
+				}
+			}
+		}
+/*插入一行*/
+		function insertTab(){
+			var tab=document.getElementById("tab");
+			var rows=tab.rows;
+			var newRow=tab.insertRow(0);
+			newRow.insertCell(0).innerHTML='D';
+			newRow.insertCell(1).innerHTML='88';
+		}
+/*删除制定行*/
+		function deleteRow(){
+			var tab=document.getElementById("tab");
+			var rows=tab.rows;
+			var index=document.getElementById("text").value;
+			tab.deleteRow(index-1);
+		}
+	</script>
+</head>
+<body onload="init();">
+	<table id="tab" border="6">
+		<tbody>
+			<tr onclick="insertTab();">
+			<td>姓名</td>
+			<td>年龄</td>
+			</tr>
+			<tr>
+			<td>A</td>
+			<td>11</td>
+			</tr>
+			<tr>
+			<td>B</td>
+			<td>12</td>
+			</tr>
+			<tr>
+			<td>C</td>
+			<td>13</td>
+			</tr>
+		</tbody>
+	</table>
+	<input type="text" value="" id="text"/>
+	<input type="button" value="确认删除" onclick="deleteRow();">
+</body>
+</html>

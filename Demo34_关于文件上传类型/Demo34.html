@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文件上传类型</title>
+	<script type='text/javascript' defer=true>
+		function checkSubmit(){
+			var fileName=document.forms[0].myfile.value;
+			/*这里是重点*/
+			var name=fileName.substring(lastIndexOf(".")+1).toUpperCase();
+			if(name=JPG){
+				alert('格式错误');
+				
+			}else{
+				document.forms[0].submit();
+				
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="post" name="myForm" onsubmit="checkSubmit();">
+		<label for="myfile"></label>
+		<input type="file" id='myfile' name="myfile" />
+		<input type="submit" id="submit" name="submit" />
+	</form>
+</body>
+</html>

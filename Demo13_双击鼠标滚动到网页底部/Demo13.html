@@ -1,0 +1,38 @@
+<!-- js中的event对象的button属性，值为1（左键）2（中键）3（右键） -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>禁用鼠标右键并改变鼠标的形状</title>
+	<script type="text/javascript" defer=true>
+	    var Timer;
+	    function pageScroll(){
+	    	window.scrollBy(0,1);
+	    }
+	    function TimeScroll(){
+	    	Timer=setInterval("pageScroll();", 10);
+	    }
+	    function stopTimer(){
+	    	clearInterval(Timer);
+	    }
+	    document.onmouseover=function(){
+	         stopTimer();
+	    }
+	    document.ondblclick=function(){
+	    	TimeScroll();
+	    }
+	</script>
+</head>
+<body>
+	<p>禁用鼠标右键并改变鼠标的形状</p>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+	
+</body>
+</html>
