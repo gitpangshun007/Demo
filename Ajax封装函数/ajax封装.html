@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX封装</title>
+</head>
+<body>
+    <input type="button" value="提交" onclick="newAjax();" />
+	<script>
+	    var xhr;
+              if(!xhr){
+              	if(window.XMLHttpRequest){
+              		xhr=new XMLHttpRequest();
+              	}else{
+              		xhr=new ActiveXObject('Microsoft.XMLHTTP');
+              	}
+              }
+	    function AJAX(url,callback,params,method){
+              this.url=url;
+              this.callback=callback;
+              this.params=params;
+              this.method=method;
+              this.send=function(){
+              	if(!this.method){
+              		this.method='GET';
+              	}
+              	if(method=="POST"){
+              		xhr.open(this.method,this.url,true);
+              		xhr.send(params);
+              	}else if(method=="GET"){
+              		xhr.open(this.method,this.url+'?'+params,true);
+              		xhr.send(null);
+              	}
+              }
+              if(xhr.readyState==4&&xhr.status==200){
+              	callback();
+              }
+              
+	    }
+	    function newAjax(){
+	    	var ajax=new AJAX('test.php',function(){
+	    		alert(xhr.responseText);
+	    	},'','GET');
+	    	ajax.send();
+	    }
+	</script>
+</body>
+</html>
