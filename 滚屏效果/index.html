@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动屏效果</title>
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<div id="nav">
+		<ul>
+			<li>享品质</li>
+			<li>服饰美妆</li>
+			<li>家电手机</li>
+			<li>电脑数码</li>
+			<li>3C运动</li>
+			<li>爱吃</li>
+			<li>母婴家具</li>
+			<li>图书汽车</li>
+			<li>虚拟</li>
+			<li>还没逛够</li>
+			</ul>
+	</div>
+	<div id="wrap">
+		<div id="top"></div>
+		<div id="middle">
+			<ul>
+			<li>享品质</li>
+			<li>服饰美妆</li>
+			<li>家电手机</li>
+			<li>电脑数码</li>
+			<li>3C运动</li>
+			<li>爱吃</li>
+			<li>母婴家具</li>
+			<li>图书汽车</li>
+			<li>虚拟</li>
+			<li>还没逛够</li>
+		</ul>
+		</div>
+		<div id="bottom"></div>
+	</div>
+	<script src="js/dom.js"></script>
+	<script src="js/distance.js"></script>
+	<script src="js/backTop.js"></script>
+	<script type="text/javascript">
+		var navBar=document.getElementById("nav");
+		var middle=document.getElementById("middle");
+		var navList=navBar.getElementsByTagName("li");
+		var middleList=middle.getElementsByTagName("li");
+		for (var i = 0; i < navList.length; i++) {
+			(function(m){navList[i].onclick=function(){
+                   rollTop((getDistanceBody(middleList[m]).top-document.documentElement.clientHeight/3),2000);
+		}})(i);
+			window.onscroll=scroll;
+	}
+/*页面滚动且左边的nav样式出现变化的函数*/
+		function scroll(){
+			var viewHeight=document.documentElement.clientHeight;
+            if(getDistanceBody(middle).top-document.body.scrollTop < viewHeight/2){
+            	navBar.style.display="block";
+            }
+			   for(var i=0;i<middleList.length;i++){
+			if(getDistanceBody(middleList[i]).top-document.body.scrollTop < viewHeight/2){
+				for(j=0;j<navList.length;j++){
+					navList[j].style.backgroundColor='';
+				}
+				navList[i].style.backgroundColor="orange";
+			}
+		 }
+		}
+	</script>
+</body>
+</html>

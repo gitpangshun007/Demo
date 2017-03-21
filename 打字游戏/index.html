@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>打字游戏</title>
+	<link rel="stylesheet" href="CSS/main.css" />
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+	//获取box元素，用来计数
+	    var box=document.getElementById("box");
+	 //计数初始值为0
+	    score=0;
+	 //创建构造函数
+		function Letter(){
+			this.dom=document.createElement('div');
+			//获取对象的初始位置
+			this.domPostionX=0;
+			//y轴的位置随机
+			this.domPostionY=parseInt(Math.random()*(document.documentElement.clientHeight-40));
+			//字母数组
+			this.domArr=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+			//定义定时器
+			this.timer=null;
+			this.init();
+		}
+		Letter.prototype.init=function(){
+			//添加样式和dom
+			this.addStyle();
+			this.addDom();
+			//因为定时器执行时this指向window，这里要把this保存到一个变量里去
+			var that=this;
+			this.timer=setInterval(function(){
+				that.domPostionX+=10;
+				that.dom.style.left=that.domPostionX + 'px';
+			}, 60);
+		}
+		//添加样式
+		Letter.prototype.addStyle=function(){
+			this.dom.className='circle';
+			this.dom.style.left=this.domPostionX +'px';
+			this.dom.style.top=this.domPostionY + 'px';
+			this.dom.innerHTML=this.domArr[parseInt(Math.random()*26)];
+		}
+		//添加dom到文档中
+		Letter.prototype.addDom=function(){
+			document.body.appendChild(this.dom);
+		}
+		//让dom消失
+		Letter.prototype.disapper=function(){
+			document.body.removeChild(this.dom);
+		}
+		//定义一个定时器，不断的让dom加入
+		var arr=[];
+		var timer=setInterval(function(){
+			arr.push(new Letter());
+		}, 1000);
+           //键盘事件，点击后dom消失
+		   document.onkeydown=function(e){
+			for(var i=0;i<arr.length;i++){
+			//console.log(e.key);
+			var e=e||window.event;
+			if(e.key==arr[i].dom.innerHTML){
+				arr[i].disapper();
+				arr.splice(i, 1);
+				score++;
+				box.innerHTML=score;
+				if(score>5){
+					clearInterval(timer);
+					box.innerHTML='<span>恭喜你！</span>'
+                    alert('你赢了');
+				}
+			}
+/*这里一定要退出循环*/
+              break;
+		}
+	}
+	//另外定义个定时器，在视口边界的时候被删除
+	       var timer1=setInterval(function(){
+	       	for (var i = 0; i < arr.length; i++) {
+	         	if(arr[i].domPostionX>document.documentElement.clientWidth){
+	         		clearInterval(arr[i].timer);
+	         		arr[i].disapper();
+	         		//把这个dom删除
+	         		arr.splice(i,1) ;
+	         		score--;
+	         		box.innerHTML=score;
+	         		if(score<-10){
+	         			
+	         			alert('你输了！请重新开始游戏');
+	         			box.innerHTML='<span>你太次了</span>';
+	         			clearInterval(timer1);
+	         			clearInterval(timer);
+	         		}
+	         	}
+
+	         }
+	     },20);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+*{padding:0;margin: 0;}
+body{text-align: center}
+#wrap{overflow: hidden;margin: 0 auto;}
+#piano{width:700px;height: 500px;overflow: hidden;border:1px solid #000;}
+#piano li{width:100px;height:100%;overflow: hidden;float: left;
+	list-style: none;text-decoration: none;}
+#piano li.active{
+	background-color: orange;
+	border:1px solid #000;
+}

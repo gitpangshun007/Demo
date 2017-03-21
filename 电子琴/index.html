@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>电子琴</title>
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <audio src="audio/1.mp3" autoplay="autoplay"></audio>
+	<div id='wrap'>
+		<ul id="piano">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script>
+		var audio=document.getElementsByTagName("audio")[0];
+		var ul=document.getElementById("piano");
+		var lis=document.getElementsByTagName('li');
+		var arr=['q','w','e','r','t','y','u'];
+		var arrkey=['1.mp3','2.mp3','3.mp3','4.mp3','5.mp3','6.mp3','7.mp3'];
+		document.onkeydown=function(e){
+            var e=e||window.event;
+            for(var i = 0;i<arr.length;i++){
+            	if(e.key.toLowerCase()==arr[i]){
+            		audio.src = "audio/"+ arrkey[i];
+            		for(var j=0;j<lis.length;j++){
+            			lis[j].className='';
+            		}
+            		lis[i].className='active';
+            	}
+            }
+		}
+	</script>
+</body>
+</html>

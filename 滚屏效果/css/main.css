@@ -1,0 +1,13 @@
+*{margin:0;padding:0;}
+/*左边导航条的样式*/
+#nav{overflow: hidden;position: fixed;top:120px;left:10px;/*display: none;*/}
+#nav ul{overflow: hidden;}
+#nav ul li{list-style: none;width:50px;height: 50px;background-color: #00ccff;
+border:1px solid orange;text-align:center;line-height: 25px;cursor: pointer;}
+/*右边正式内容的样式*/
+#wrap{width: 1000px;height: 4000px;border:1px solid #000;margin:0 auto;}
+#top{height: 900px;background-color: #ffa800;}
+#middle{height: 2800px}
+#middle ul li{height: 280px;width: 100%;text-align: center;list-style: none;
+border:1px solid #00ccff;}
+#bottom{height: 300px;background-color: #ffa800;}
