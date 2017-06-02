@@ -1,0 +1,5 @@
+#main{position: relative;}
+#box{padding:15px 0 0 15px;float:left;}
+.pic{padding:10px;border:1px solid orange;border-radius: 8px;
+box-shadow:  0 0 6px;}
+.pic img{width:162px;}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单验证</title>
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<form action="" method="POST" onsubmit="return eg.regCheck()">
+	    <!-- 记录错误的次数 -->
+		<input type="hidden" id='errCount' value="0" /> <br/><br/>
+		账户：<input type="text" id="user" value="" /> <br/><br/>
+		密码：<input type="password" id='pwd1' value="" /> <br/><br/>
+		确认密码：<input type="password" id='pwd2' value="" /> <br/><br/>
+		性别：<label for="sex"></label>
+			<input type="radio" value="1" id="male" />男
+			<input type="radio" value="0" id="female" />女 <br/><br/>
+	    年龄：<select name="age" id="age">
+	    	<option value="0" selected="selected">请选择年龄段</option>
+	    	<option value="1">18岁以下</option>
+	    	<option value="2">18-24岁</option>
+	    	<option value="3">24-30岁</option>
+	    	<option value="4">30-35岁</option>
+	    	<option value="4">35岁以上</option>
+	    </select><br/><br/>
+       爱好：<input type="checkbox" value="0" class="like" />上网
+        <input type="checkbox" value="1" class="like" />逛街
+        <input type="checkbox" value="2" class="like" />看电影
+        <input type="checkbox" value="3" class="like" />其他<br/><br/>
+       简介：<textarea name="topic" id="topic " cols="30" rows="10">
+       </textarea><br/><br/>
+       <input type="submit" id='reg' name="reg" /><br/><br/>
+       <input type="button" id='unlock' name="unlock"  value="解锁" onclick="return eg.unlock()" />
+	</form>
+	<script type='text/javascript' src='js/check.js'></script>
+</body>
+</html>
